@@ -163,17 +163,3 @@ double min = MinNumber(myArray);
 
 Console.WriteLine($"{max} - {min} = {max - min}");
 
-
-/*Console.WriteLine($"{max} - {min} = {max - min:f2}");
-
-for (int z = 0; z < numbers.Length; z++)
-{
-    if (numbers[z] > max)
-        {
-            max = numbers[z];
-        }
-    if (numbers[z] < min)
-        {
-            min = numbers[z];
-        }
-}*/
