@@ -107,6 +107,12 @@ int sumTotal = SumNumbers(myArray);
 // Задайте массив вещественных чисел.
 // Найдите разницу между максимальным и минимальным элементов массива.
 
+int InputNum(string message)
+{
+    Console.Write(message);
+    return int.Parse(Console.ReadLine()!);
+}
+
 void FillArray(double[] array)
 {
     for (int i = 0; i < array.Length; i++)
@@ -120,46 +126,43 @@ void PrintArray(double[] array)
     Console.Write("[ ");
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(array[i] + " ");
+        Console.Write(array[i] + ". ");
     }
     Console.Write("]");
     Console.WriteLine();
 }
 
-
-double MaxNumber(double[] array)                                                                                                            
-{                                                        
-    double max = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] > max)
-        {
-            max = array[i];
-        }
-    }
-    return max;
-}                                                                         
+double MaxNumber(double[] array)
+{
+    double max = array[0];
+	for (int i = 0; i < array.Length; i++)
+	{
+		if (max < array[i])
+		{
+			max = array[i];
+		}
+	}
+	return max;
+}
 
 double MinNumber(double[] array)
 {
-    double min = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] < min)
-        {
-            min = array[i];
-        }
-    }
-    return min;
+    double min = array[0];
+	for (int i = 0; i < array.Length; i++)
+	{
+		if (min > array[i])
+		{
+			min = array[i];
+		}
+	}
+	return min;
 }
 
-Console.WriteLine("Введите размер массива  ");
-int size =int.Parse(Console.ReadLine()!); ;
-double[] myArray = new double[size];
+
+int size = InputNum("Введите размер массива: ");
+double[] myArray = new double[size];   // Не получилось сделать через функцию CreateArray.
 FillArray(myArray);
 PrintArray(myArray);
 double max = MaxNumber(myArray);
 double min = MinNumber(myArray);
-
-Console.WriteLine($"{max} - {min} = {max - min}");
-
+Console.WriteLine($"{max} - {min} = {max - min:f2}");
